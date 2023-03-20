@@ -70,7 +70,7 @@ const App = () => {
 
 export default () => (
   <Routes>
-    <Route path="/" element={<App />} />
+    <Route index path="/" element={<App />} />
     <Route path="/auth/login" element={<Login />} />
     <Route path="*" element={<div>404</div>} />
   </Routes>
