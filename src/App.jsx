@@ -10,6 +10,7 @@ import { setUser } from './store/userReducer';
 import axios from 'axios';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Login from './components/Auth/Login'
+import Layout from './components/Layout/Layout'
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,8 +40,6 @@ const App = () => {
       window.location.href = '/auth/login';
     }
   }, [])
-
-  if (user)
     return (
       <div className="flex h-screen">
         <Nav navVisible={navVisible} setNavVisible={setNavVisible} />
@@ -60,18 +59,14 @@ const App = () => {
         </div>
       </div>
     );
-  else
-    return (
-      <div className="flex h-screen">
-        
-      </div>
-    )
 };
 
 export default () => (
   <Routes>
-    <Route index path="/" element={<App />} />
-    <Route path="/auth/login" element={<Login />} />
-    <Route path="*" element={<div>404</div>} />
+    <Route path="/" element={<Layout />} >
+      <Route index element={<App />} />
+      <Route path="/auth/login" element={<Login />} />
+      <Route path="*" element={<div>404</div>} />
+    </Route>
   </Routes>
 );
