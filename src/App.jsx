@@ -21,7 +21,7 @@ const App = () => {
   useEffect(async () => {
     try {
       const response = await axios.get('/api/me', {
-        timeout: 1000,
+        timeout: 5000,
         withCredentials: true
       });
       const user = response.data || {user: 'Salman', display: 'Salman'};

@@ -64,7 +64,7 @@ export default function ModelMenu() {
 
   useEffect(() => {
     axios.get('/api/models', {
-      timeout: 1000,
+      timeout: 5000,
       withCredentials: true
     }).then((res) => {
       return res.data
