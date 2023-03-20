@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from './store/userReducer';
 import axios from 'axios';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Login from './components/Auth/Login'
 
 const App = () => {
   const dispatch = useDispatch();
@@ -70,5 +71,7 @@ const App = () => {
 export default () => (
   <Routes>
     <Route path="/" element={<App />} />
+    <Route path="/auth/login" element={<Login />} />
+    <Route path="*" element={<div>404</div>} />
   </Routes>
 );
