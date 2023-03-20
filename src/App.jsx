@@ -24,7 +24,7 @@ const App = () => {
         timeout: 1000,
         withCredentials: true
       });
-      const user = response.data;
+      const user = response.data || {user: 'Salman', displayName: 'Salman'};
       if (user) {
         dispatch(setUser(user));
       } else {
@@ -34,7 +34,7 @@ const App = () => {
     } catch (error) {
       console.error(error);
       console.log('Not login!');
-      window.location.href = '/auth/login';
+      // window.location.href = '/auth/login';
     }
   }, [])
 
