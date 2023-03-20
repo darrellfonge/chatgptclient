@@ -35,6 +35,7 @@ const App = () => {
       console.error(error);
       console.log('Not login!');
       // window.location.href = '/auth/login';
+      dispatch(setUser({user: 'Salman', displayName: 'Salman'}));
     }
   }, [])
 
