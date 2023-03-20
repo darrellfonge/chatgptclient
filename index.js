@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 import { ThemeProvider } from './src/hooks/ThemeContext';
+import { BrowserRouter } from "react-router-dom";
 import App from './src/App';
 import './src/style.css';
 import './src/mobile.css'
@@ -13,7 +14,9 @@ const root = createRoot(container);
 root.render(
   <Provider store={store}>
     <ThemeProvider>
+    <BrowserRouter>
       <App />
+    </BrowserRouter>
     </ThemeProvider>
   </Provider>
 );

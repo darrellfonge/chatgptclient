@@ -8,6 +8,7 @@ import useDocumentTitle from '~/hooks/useDocumentTitle';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from './store/userReducer';
 import axios from 'axios';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -66,4 +67,8 @@ const App = () => {
     )
 };
 
-export default App;
+export default () => (
+  <Routes>
+    <Route path="/" element={<App />} />
+  </Routes>
+);
