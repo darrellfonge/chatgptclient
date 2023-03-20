@@ -93,7 +93,7 @@ export default function ModelMenu() {
     }).catch((error) => {
       console.error(error)
       console.log('Not login!')
-      window.location.href = "/auth/login";
+      // window.location.href = "/auth/login";
     })
   }, [])
 
