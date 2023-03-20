@@ -1,3 +1,5 @@
+import React, { useReducer } from 'react';
+
 const Login = () => {
     const initialState = {
         username: '',
@@ -19,9 +21,7 @@ const Login = () => {
         };
 
         
-    const { username, password,  loading } = state;
-        
-    const [state, dispatch] = useReducer(reducer, initialState, {});
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     const onChange = (e) => {
         dispatch({ type: e.target.name, payload: e.target.value });
@@ -55,18 +55,18 @@ const Login = () => {
                             type="text"
                             name="username"
                             placeholder="Username"
-                            value={username}
+                            value={state.username}
                             onChange={onChange}
                         />
                         <input
                             type="password"
                             name="password"
                             placeholder="Password"
-                            value={password}
+                            value={state.password}
                             onChange={onChange}
                         />
-                        <button type="submit" disabled={loading}>
-                            {loading ? 'Loading...' : 'Login'}
+                        <button type="submit" disabled={state.loading}>
+                            {state.loading ? 'Loading...' : 'Login'}
                         </button>
                     </form>
                 </div>
