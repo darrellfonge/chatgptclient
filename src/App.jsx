@@ -24,18 +24,19 @@ const App = () => {
         timeout: 1000,
         withCredentials: true
       });
-      const user = response.data || {user: 'Salman', displayName: 'Salman'};
+      const user = response.data || {user: 'Salman', display: 'Salman'};
       if (user) {
         dispatch(setUser(user));
       } else {
         console.log('Not login!');
-        window.location.href = '/auth/login';
+        // window.location.href = '/auth/login';
+        dispatch(setUser({user: 'Salman', display: 'Salman'}));
       }
     } catch (error) {
       console.error(error);
       console.log('Not login!');
       // window.location.href = '/auth/login';
-      dispatch(setUser({user: 'Salman', displayName: 'Salman'}));
+      dispatch(setUser({user: 'Salman', display: 'Salman'}));
     }
   }, [])
 
